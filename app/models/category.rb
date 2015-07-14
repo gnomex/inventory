@@ -13,6 +13,6 @@ class Category < ActiveRecord::Base
 
   protected
   def normalize_name
-    self.part_number = part_number.strip.downcase!
+    self.name = name.strip.downcase!
   end
 end
