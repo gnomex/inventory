@@ -1,15 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Component, :type => :model do
-  context "Required fields" do
-    it "don't create with blank or invalid data" do
-      component = Component.new
-      expect(component.errors_on(:part_number)).to_not be_empty
-      expect(component.errors_on(:stock)).to_not be_empty
-      expect(component.errors_on(:description)).to_not be_empty
-      expect(component.errors_on(:datasheet)).to_not be_empty
-      expect(component.errors_on(:status)).to_not be_empty
-    end
+  it "Required fields" do
+    component = Component.new
+    expect(component.errors_on(:part_number)).to_not be_empty
+    expect(component.errors_on(:stock)).to_not be_empty
+    expect(component.errors_on(:description)).to_not be_empty
+    expect(component.errors_on(:datasheet)).to_not be_empty
+    expect(component.errors_on(:status)).to_not be_empty
   end
 
   context "Model validations" do
@@ -46,4 +44,3 @@ RSpec.describe Component, :type => :model do
     end
   end
 end
-
