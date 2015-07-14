@@ -3,7 +3,7 @@ class CreateComponents < ActiveRecord::Migration
     enable_extension 'uuid-ossp'
 
     create_table :components, id: :uuid do |t|
-      t.integer :part_number,   null: false, index: true, unique: true
+      t.string  :part_number,   null: false, index: true, unique: true
       t.integer :stock,         null: false
       t.string  :description,   null: false, default: ""
       t.string  :manufacturer

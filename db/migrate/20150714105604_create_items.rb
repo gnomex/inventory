@@ -3,8 +3,8 @@ class CreateItems < ActiveRecord::Migration
     enable_extension 'uuid-ossp'
 
     create_table :items, id: :uuid do |t|
-      t.string :name, null: false, default: "", index: true, unique: true
-      t.string :useful_for
+      t.string  :name, null: false, default: "", index: true, unique: true
+      t.string  :useful_for
       t.integer :quantity, null: false
 
       t.belongs_to :category, index: true

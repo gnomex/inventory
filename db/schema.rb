@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150714105604) do
   add_index "categories", ["name"], name: "index_categories_on_name", using: :btree
 
   create_table "components", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.integer  "part_number",               null: false
+    t.string   "part_number",               null: false
     t.integer  "stock",                     null: false
     t.string   "description",  default: "", null: false
     t.string   "manufacturer"
