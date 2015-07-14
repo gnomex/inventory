@@ -1,10 +1,10 @@
 class Component < ActiveRecord::Base
   self.table_name = "components"
 
-  before_validation :normalize_name
+  before_save :normalize_name
 
   validates_presence_of :part_number, :stock, :description, :datasheet, :status
-  validates_uniqueness_of :part_number
+  validates :part_number, uniqueness: true
 
   belongs_to :category
 
@@ -12,6 +12,6 @@ class Component < ActiveRecord::Base
 
   protected
   def normalize_name
-    self.part_number = part_number.strip.upcase!
+    self.part_number = part_number.strip.upcase! unless part_number.nil?
   end
 end
