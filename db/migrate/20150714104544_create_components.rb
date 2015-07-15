@@ -10,7 +10,7 @@ class CreateComponents < ActiveRecord::Migration
       t.string  :datasheet,     null: false, default: ""
       t.string  :image_link
 
-      t.belongs_to :category, index: true
+      t.references :category, index: true
 
       t.jsonb  :status, null: false, default: '{}'
       t.timestamps

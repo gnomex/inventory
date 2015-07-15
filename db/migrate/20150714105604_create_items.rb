@@ -7,8 +7,8 @@ class CreateItems < ActiveRecord::Migration
       t.integer :quantity,  null: false
       t.string  :useful_for
 
-      t.belongs_to :category, index: true
-      t.belongs_to :toolbox,  index: true
+      t.references :category, index: true
+      t.references :toolbox,  index: true
 
       t.timestamps
     end
