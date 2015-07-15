@@ -1,0 +1,26 @@
+<section class="row">
+<h1><%= t("flash.categories.title") %></h1>
+
+<section class="bs-callout bs-callout-info">
+  <%= link_to t("flash.categories.form.actions.new"), new_category_path, class: "btn btn-info" %>
+</section>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("flash.categories.form.part_number") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+          <%= link_to t("flash.categories.form.actions.delete"), category_path(category), method: :delete, data: {confirm: t("flash.categories.form.actions.confirm")}, class: "btn btn-danger" %>
+          <%= link_to t("flash.categories.form.actions.show"), category_path(category), class: "btn btn-info" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

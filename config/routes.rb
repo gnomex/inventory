@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :components
+  resources :categories
 
   root to: "components#index"
   # The priority is based upon order of creation: first created -> highest priority.

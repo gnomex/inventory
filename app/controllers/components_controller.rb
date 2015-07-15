@@ -30,7 +30,7 @@ class ComponentsController < ApplicationController
   end
 
   def edit
-    @component = Component.find(params[:component])
+    @component = Component.find(params[:id])
   end
 
   def update
@@ -38,7 +38,7 @@ class ComponentsController < ApplicationController
     if @component.update_attributes(params[:component])
       redirect_to components_path
     else
-      render :edit
+      render :edit, error: t("flash.components.errors.update")
     end
   end
 
