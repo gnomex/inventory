@@ -12,6 +12,6 @@ class Component < ActiveRecord::Base
 
   protected
   def normalize_name
-    self.part_number = part_number.strip.upcase! unless part_number.nil?
+    self.part_number = part_number.strip.upcase!
   end
 end
