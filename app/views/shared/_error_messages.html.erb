@@ -1,0 +1,11 @@
+<% unless record.errors.empty? %>
+  <section class="bs-callout bs-callout-danger">
+    <dl>
+      <dt><%= t("flash.users.form.erros_mesages") %></dt>
+
+      <% record.errors.full_messages.each do |message| %>
+        <dd><%= message %></dd>
+      <% end %>
+    </dl>
+  </section>
+<% end %>

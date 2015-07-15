@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery-ujs/src/rails
 //= require bootstrap/dist/js/bootstrap
-//= require turbolinks
+//= require namespace
 //= require_tree .
