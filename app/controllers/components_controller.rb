@@ -2,6 +2,14 @@ class ComponentsController < ApplicationController
 
   def index
     @components = Component.all
+
+    if @components.blank?
+      flash.now[:alert] = t("flash.components.norecords")
+    end
+  end
+
+  def show
+    @component = Component.find(params[:id])
   end
 
   def new
@@ -10,6 +18,9 @@ class ComponentsController < ApplicationController
 
   def create
     @component = Component.new(form_params)
+
+    # status ||= @component.status
+    @component.status = Hash["event".to_sym, "status"]
 
     if @component.save
       redirect_to components_path
@@ -41,7 +52,7 @@ class ComponentsController < ApplicationController
   end
 
   private
-  def for_params
+  def form_params
     params.require(:component).permit(:part_number, :stock, :description, :manufacturer, :datasheet, :image_link, :status)
   end
 end

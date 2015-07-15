@@ -21,7 +21,37 @@ RSpec.describe Component, :type => :model do
 
     it "Part number can't be blank" do
       @component.part_number = ""
-      expect(@component).to_not be_valid
+
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:part_number) ).to_not be_empty
+    end
+
+    it "Part number can't be nil" do
+      @component.part_number = nil
+
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:part_number) ).to_not be_empty
+    end
+
+    it "Status can't be blank" do
+      @component.status = {}
+
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:status) ).to_not be_empty
+    end
+
+    it "Status can't be a String" do
+      @component.status = ""
+
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:status) ).to_not be_empty
+    end
+
+    it "Status can't be nil" do
+      @component.status = nil
+
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:status) ).to_not be_empty
     end
 
     it "have a normalized Part Number" do

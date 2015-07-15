@@ -1,0 +1,35 @@
+en:
+  flash:
+    title: "Potato"
+
+    components:
+      form:
+        title:      "Create a new component"
+        id:         "#"
+        part_number: "Part number"
+        stock:       "Quantity in Stock"
+        description: "A short description"
+        manufacturer: "The manufacturer name"
+        datasheet:    "Datasheet link"
+        image_link:  "A image link for the component"
+        status:      "This component is available to use?"
+        erros_mesages: "Errors"
+        actions:
+          edit:   "Editing"
+          submit: "Save!"
+          show:   "Show me"
+          cancel: "Cancel"
+          delete: "Purge"
+          confirm: "Are you sure?"
+
+      errors:
+        status:
+          nothash: "must be a Hash instance"
+
+      title: "Components"
+      norecords: "No records found"
+
+      destroy:
+        notice: "Removed!"
+        error:  "We can't remove, try again later"
+

@@ -1,0 +1,80 @@
+pt-BR:
+  flash:
+    client:
+      form:
+        title:      "Cadastro de novo contato"
+        id:         "#"
+        given_name: "Nome"
+        last_name:  "Sobrenome"
+        birthday:   "Data de Nascimento"
+        cpf:        "CPF"
+        rg:         "RG"
+        email:      "Email"
+        phones:     "Telefones"
+        address:    "Endereço"
+        erros_mesages: "Erros"
+        actions: "Ações"
+        submit: "Cadastrar"
+        cancel: "Cancelar"
+        delete: "Excluir"
+        confirm: "Você tem certeza?"
+
+      title: "Contatos"
+
+    lawyer:
+      form:
+        title:      "Cadastro de novo advogado"
+        id:         "#"
+        given_name: "Nome"
+        last_name:  "Sobrenome"
+        cpf:        "CPF"
+        rg:         "RG"
+        oab:        "OAB"
+        oab_location: "Localidade da OAB"
+        email:      "Email"
+        phones:     "Telefones"
+        address:    "Endereço"
+        erros_mesages: "Erros"
+        actions: "Ações"
+        submit: "Cadastrar"
+        cancel: "Cancelar"
+        delete: "Excluir"
+        confirm: "Você tem certeza?"
+
+      title: "Advogados"
+
+      validators:
+        oab_location:
+            not_allowed: "A localidade OAB/%{value} fornecida não é valida"
+
+    auth:
+      alert: "Você precisar fazer o login para acessar esta página."
+
+    users:
+      create:
+        notice: "O usuário foi cadastrado com sucesso!"
+        error: "Opa! Algo deu errado, verifique os campos abaixo."
+        admin: "Administrador"
+
+      destroy:
+        notice: "O usuário foi removido com sucesso"
+
+    sessions:
+      create:
+        notice: "Que bom que você voltou!"
+        alert: "E-mail/senha inválidos."
+        error: "O usuário não pode ser criado"
+
+    questions:
+      create:
+        notice: "Sua pergunta foi adiciona com sucesso!"
+
+      destroy:
+        notice: "O usuário foi removido com sucesso"
+        error: "Algum problema aconteceu e o usuário não foi removido"
+
+    replies:
+      create:
+        notice: "Sua resposta foi adicionada!"
+        alert: "Você precisa preencher sua resposta."
+

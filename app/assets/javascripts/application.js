@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery/dist/jquery.min
 //= require jquery-ujs/src/rails
 //= require bootstrap/dist/js/bootstrap
 //= require namespace
