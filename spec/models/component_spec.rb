@@ -40,7 +40,9 @@ RSpec.describe Component, :type => :model do
       @component.save!
 
       cm = build(:component, status: { testing: "yep" })
-      cm.save!
+      puts cm.inspect
+      expect{ cm.save! }.to raise_error
+      expect( cm.errors_on(:part_number) ).to_not be_empty
     end
   end
 end

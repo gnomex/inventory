@@ -4,7 +4,7 @@ class Component < ActiveRecord::Base
   before_save :normalize_name
 
   validates_presence_of :part_number, :stock, :description, :datasheet, :status
-  validates :part_number, uniqueness: true
+  validates_uniqueness_of :part_number
 
   belongs_to :category
 
