@@ -1,5 +1,5 @@
 class Toolbox < ActiveRecord::Base
-  self.table_name = "tolboxes"
+  self.table_name = "toolboxes"
 
   before_save :normalize_name
 
