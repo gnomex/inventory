@@ -20,13 +20,13 @@ end
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'rspec-collection_matchers'
   gem 'factory_girl_rails', "~> 4.0"
+  gem 'faker', '~> 1.4.3'
 end
 
 group :test do

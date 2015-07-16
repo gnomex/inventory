@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Component, :type => :model do
-  it "Required fields" do
+  it "Throw errors on required fields" do
     component = Component.new
     expect(component.errors_on(:part_number)).to_not be_empty
     expect(component.errors_on(:stock)).to_not be_empty
@@ -61,16 +61,15 @@ RSpec.describe Component, :type => :model do
     end
   end
 
-  context "Unique" do
+  context "Unique fields" do
     before(:all) do
-      @component = build(:component, status: { testing: "yep" })
+      @component = create(:component, status: { done: "nooop" })
     end
 
-    it "Part number" do
-      @component.save!
-
+    it "part number" do
       cm = build(:component, status: { testing: "yep" })
-      expect{ cm.save! }.to raise_error
+
+      expect{ cm.save! }.to raise_error(ActiveRecord::RecordNotUnique)
       expect( cm.errors_on(:part_number) ).to_not be_empty
     end
   end

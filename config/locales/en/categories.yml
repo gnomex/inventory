@@ -3,6 +3,14 @@ en:
     categories:
       title: "All categories"
 
+      destroy:
+        notice: "The category %{name} was deleted"
+        error: "Hey, we got a error on %{name} and it's impossible to remote it now, try later!"
+
+      create:
+        error: "Impossible to save %{name} now"
+        sucess: "The category %{name} is safe now!"
+
       form:
         title:      "Create a new categorie"
         id:         "#"

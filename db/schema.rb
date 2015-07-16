@@ -32,13 +32,12 @@ ActiveRecord::Schema.define(version: 20150714105604) do
     t.string   "manufacturer"
     t.string   "datasheet",    default: "", null: false
     t.string   "image_link"
-    t.integer  "category_id"
     t.jsonb    "status",       default: {}, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.uuid     "category_id"
   end
 
-  add_index "components", ["category_id"], name: "index_components_on_category_id", using: :btree
   add_index "components", ["part_number"], name: "index_components_on_part_number", unique: true, using: :btree
   add_index "components", ["status"], name: "index_components_on_status", using: :gin
 
