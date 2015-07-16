@@ -10,7 +10,7 @@ class Category < ActiveRecord::Base
   has_many :items,      dependent: :destroy
   has_many :components, dependent: :destroy
 
-  default_scope -> { order created_at: "DESC" }
+  default_scope -> { order name: "ASC" }
 
   protected
   def normalized_name

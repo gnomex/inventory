@@ -39,6 +39,10 @@
   <%= error_for @component, :image_link %>
 </section>
 
+<section class="form-group">
+  <%= f.collection_select(:category_id, @categories, :id, :name, {}, {class: 'form-control'}) %>
+</section>
+
 <section class="form-actions">
   <%= f.submit t("flash.components.form.actions.submit"), class: 'btn btn-success' %>
   <%= link_to t("flash.components.form.actions.cancel"), components_path, class: 'btn btn-warning' %>

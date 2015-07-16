@@ -7,6 +7,7 @@
     <li class="list-group-item"><%= @component.stock %></li >
     <li class="list-group-item"><%= @component.description %></li >
     <li class="list-group-item"><%= @component.datasheet %></li >
+    <li class="list-group-item"><%= @component.category.name unless @component.category.nil?  %></li >
   </ul>
 </section>
 

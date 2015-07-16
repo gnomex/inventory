@@ -14,12 +14,12 @@ class ComponentsController < ApplicationController
 
   def new
     @component = Component.new
+    @categories = Category.all
   end
 
   def create
     @component = Component.new(form_params)
 
-    # status ||= @component.status
     @component.status = Hash["event".to_sym, "status"]
 
     if @component.save
@@ -53,6 +53,6 @@ class ComponentsController < ApplicationController
 
   private
   def form_params
-    params.require(:component).permit(:part_number, :stock, :description, :manufacturer, :datasheet, :image_link, :status)
+    params.require(:component).permit(:part_number, :stock, :description, :manufacturer, :datasheet, :image_link, :status, :category_id)
   end
 end
