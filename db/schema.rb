@@ -45,15 +45,13 @@ ActiveRecord::Schema.define(version: 20150714105604) do
     t.string   "name",        default: "", null: false
     t.integer  "quantity",                 null: false
     t.string   "useful_for"
-    t.integer  "category_id"
-    t.integer  "toolbox_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.uuid     "category_id"
+    t.uuid     "toolbox_id"
   end
 
-  add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
   add_index "items", ["name"], name: "index_items_on_name", unique: true, using: :btree
-  add_index "items", ["toolbox_id"], name: "index_items_on_toolbox_id", using: :btree
 
   create_table "toolboxes", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",        default: "", null: false

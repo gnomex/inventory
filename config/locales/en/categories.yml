@@ -9,7 +9,7 @@ en:
 
       create:
         error: "Impossible to save %{name} now"
-        sucess: "The category %{name} is safe now!"
+        notice: "The category %{name} is safe now!"
 
       form:
         title:      "Create a new categorie"

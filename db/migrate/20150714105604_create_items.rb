@@ -7,12 +7,11 @@ class CreateItems < ActiveRecord::Migration
       t.integer :quantity,  null: false
       t.string  :useful_for
 
-      t.references :category, index: true
-      t.references :toolbox,  index: true
-
       t.timestamps
     end
 
+    add_column :items, :category_id, :uuid, index: true
+    add_column :items, :toolbox_id , :uuid, index: true
     add_index :items, :name, unique: true
   end
 
