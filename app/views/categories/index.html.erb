@@ -8,7 +8,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th><%= t("flash.categories.form.part_number") %></th>
+      <th><%= t("flash.categories.form.title") %></th>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +17,6 @@
         <td><%= category.name %></td>
         <td>
           <%= link_to t("flash.categories.form.actions.delete"), category_path(category), method: :delete, data: {confirm: t("flash.categories.form.actions.confirm")}, class: "btn btn-danger" %>
-          <%= link_to t("flash.categories.form.actions.show"), category_path(category), class: "btn btn-info" %>
         </td>
       </tr>
     <% end %>

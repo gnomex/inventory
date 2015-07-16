@@ -1,10 +1,11 @@
 class Category < ActiveRecord::Base
   self.table_name = "categories"
 
-  before_validation :normalize_name
+  before_validation :normalized_name
 
   validates_presence_of :name
   validates_uniqueness_of :name
+  # validates_format_of :name, with: /\A[\w]+/, on: :save
 
   has_many :items,      dependent: :destroy
   has_many :components, dependent: :destroy
@@ -12,7 +13,7 @@ class Category < ActiveRecord::Base
   default_scope -> { order created_at: "DESC" }
 
   protected
-  def normalize_name
-    self.name = name.strip.downcase!
+  def normalized_name
+    self.name = name.humanize
   end
 end

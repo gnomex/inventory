@@ -9,6 +9,13 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(form_params)
+
+    if @category.save
+      flash[:notice] = t("flash.categories.create.notice", name: @category.name)
+      redirect_to categories_path
+    else
+      render :new, error: t("flahs.categories.create.error", name: @category.name)
+    end
   end
 
   def edit
@@ -28,9 +35,9 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     if @category.destroy
-      redirect_to root_path, notice: t("flash.categories.destroy.notice")
+      redirect_to categories_path, notice: t("flash.categories.destroy.notice", name: @category.name)
     else
-      redirect_to root_path, error: t("flash.categories.destroy.error")
+      redirect_to categories_path, error: t("flash.categories.destroy.error", name: @category.name)
     end
   end
 

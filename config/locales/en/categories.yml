@@ -1,0 +1,17 @@
+en:
+  flash:
+    categories:
+      title: "All categories"
+
+      form:
+        title:      "Create a new categorie"
+        id:         "#"
+        name: "The name"
+        erros_mesages: "Errors"
+        actions:
+          edit:   "Editing"
+          submit: "Save!"
+          show:   "Show me"
+          cancel: "Cancel"
+          delete: "Purge"
+          confirm: "Are you sure?"

@@ -23,7 +23,7 @@ RSpec.describe Category, :type => :model do
     it "have a normalized name" do
       @category.save!
 
-      expect(@category.name).to eql("marmota")
+      expect(@category.name).to eql("A big marmota")
     end
   end
 end
