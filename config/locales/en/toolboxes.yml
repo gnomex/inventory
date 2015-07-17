@@ -12,7 +12,7 @@ en:
       create:
         error: "Impossible to save %{name} now"
         notice: "The tool %{name} is safe now!"
-        success: "The %{name} has been created!"
+        success: "The sandbox %{name} has been created!"
 
       update:
         success: "The %{name} has been updated"
