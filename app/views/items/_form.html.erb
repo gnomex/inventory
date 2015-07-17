@@ -23,6 +23,10 @@
   <%= f.collection_select(:category_id, @categories, :id, :name, {}, {class: 'form-control'}) %>
 </section>
 
+<section class="form-group">
+  <%= f.collection_select(:toolbox_id, @tools, :id, :name, {}, {class: 'form-control'}) %>
+</section>
+
 <section class="form-actions">
   <%= f.submit t("flash.items.form.actions.submit"), class: 'btn btn-success' %>
   <%= link_to t("flash.items.form.actions.cancel"), items_path, class: 'btn btn-warning' %>

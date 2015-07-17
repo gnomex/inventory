@@ -1,0 +1,31 @@
+<section class="row">
+<h1><%= t("flash.toolboxes.title") %></h1>
+
+<section class="bs-callout bs-callout-info">
+  <%= link_to t("flash.toolboxes.form.actions.new"), new_toolbox_path, class: "btn btn-info" %>
+</section>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("flash.toolboxes.form.title") %></th>
+      <th><%= t("flash.toolboxes.form.owner") %></th>
+      <th><%= t("flash.toolboxes.form.description") %></th>
+      <th><%= t("flash.toolboxes.form.actions_box") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @boxes.each do |box| %>
+      <tr>
+        <td><%= box.name %></td>
+        <td><%= box.owner %></td>
+        <td><%= box.description %></td>
+        <td>
+        <%= link_to t("flash.toolboxes.form.actions.edit"), edit_toolbox_path(box), class: "btn btn-info" %>
+        <%= link_to t("flash.toolboxes.form.actions.delete"), toolbox_path(box), method: :delete, data: {confirm: t("flash.toolboxes.form.actions.confirm")}, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @categories = Category.all
+    @tools = Toolbox.all
   end
 
   def show
@@ -29,6 +30,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @categories = Category.all
+    @tools = Toolbox.all
   end
 
   def update

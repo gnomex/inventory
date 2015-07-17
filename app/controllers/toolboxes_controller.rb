@@ -1,6 +1,10 @@
-class TolboxesController < ApplicationController
+class ToolboxesController < ApplicationController
   def index
-    @toolboxes = Toolbox.all
+    @boxes = Toolbox.all
+
+    if @boxes.blank?
+      flash.now[:alert] = t("flash.toolboxes.norecords")
+    end
   end
 
   def new
@@ -13,6 +17,13 @@ class TolboxesController < ApplicationController
 
   def create
     @box = Toolbox.new(form_params)
+
+    if @box.save
+      flash[:notice] = t("flash.toolboxes.success")
+      redirect_to toolboxes_path, error: t("flash.toolboxes.create.success")
+    else
+      render :new, error: t("flash.toolboxes.create.error")
+    end
   end
 
   def edit
@@ -21,10 +32,11 @@ class TolboxesController < ApplicationController
 
   def update
     @box = Toolbox.find(params[:id])
-    if @box.update_attributes(params[:box])
-      redirect_to box
+
+    if @box.update_attributes(toolbox_params)
+      redirect_to toolboxes_path, notice: t("flash.toolboxes.update.success")
     else
-      render :edit, error: t("flash.box.errors.update")
+      render :edit, error: t("flash.toolboxes.update.error")
     end
   end
 
@@ -32,14 +44,14 @@ class TolboxesController < ApplicationController
     @box = Toolbox.find(params[:id])
 
     if @box.destroy
-      redirect_to root_path, notice: t("flash.toolboxes.destroy.notice")
+      redirect_to toolboxes_path, notice: t("flash.toolboxes.destroy.notice")
     else
-      redirect_to root_path, error: t("flash.toolboxes.destroy.error")
+      redirect_to toolboxes_path, error: t("flash.toolboxes.destroy.error")
     end
   end
 
   private
-  def form_params
-    params.require(:box).permit()
+  def toolbox_params
+    params.require(:toolbox).permit(:name, :owner, :description)
   end
 end
