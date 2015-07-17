@@ -1,22 +1,21 @@
-<%= form_for @toolbox do |f| %>
+<%= form_for @box do |f| %>
 <section class="form-group">
   <i class="glyphicon glyphicon-asterisk"></i>
   <%= f.label t("flash.toolboxes.form.name"), class: 'form-label' %>
   <%= f.text_field :name, class: 'form-control', placeholder: t("flash.toolboxes.form.name")%>
-  <%= error_for @toolbox, :name %>
+  <%= error_for @box, :name %>
 </section>
 
 <section class="form-group">
-  <i class="glyphicon glyphicon-asterisk"></i>
   <%= f.label t("flash.toolboxes.form.owner"), class: 'form-label' %>
   <%= f.text_field :owner, class: 'form-control', placeholder: t("flash.toolboxes.form.owner")%>
-  <%= error_for @toolbox, :owner %>
+  <%= error_for @box, :owner %>
 </section>
 
 <section class="form-group">
   <%= f.label t("flash.toolboxes.form.description"), class: 'form-label' %>
   <%= f.text_area :description , class: 'form-control', placeholder: t("flash.toolboxes.form.description") %>
-  <%= error_for @toolbox, :description %>
+  <%= error_for @box, :description %>
 </section>
 
 <section class="form-actions">

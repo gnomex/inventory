@@ -1,0 +1,34 @@
+en:
+  flash:
+    toolboxes:
+      title: "All items"
+      norecords: "Nothing found"
+      link_name: "Our tools"
+
+      destroy:
+        notice: "The %{name} was deleted"
+        error: "Hey, we got a error on %{name} and it's impossible to remove it now, try later!"
+
+      create:
+        error: "Impossible to save %{name} now"
+        notice: "The tool %{name} is safe now!"
+        success: "The %{name} has been created!"
+
+      update:
+        success: "The %{name} has been updated"
+        error:  "Impossible to update"
+
+      form:
+        title:      "Create a sandbox"
+        id:         "#"
+        name: "The name"
+        owner: "Owner or responsible name"
+        description: "A short description"
+        erros_mesages: "Errors"
+        actions:
+          edit:   "Editing"
+          submit: "Save!"
+          show:   "Show me"
+          cancel: "Cancel"
+          delete: "Purge"
+          confirm: "Are you sure?"

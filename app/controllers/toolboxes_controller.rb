@@ -16,13 +16,12 @@ class ToolboxesController < ApplicationController
   end
 
   def create
-    @box = Toolbox.new(form_params)
+    @box = Toolbox.new(toolbox_params)
 
     if @box.save
-      flash[:notice] = t("flash.toolboxes.success")
-      redirect_to toolboxes_path, error: t("flash.toolboxes.create.success")
+      redirect_to toolboxes_path, notice: t("flash.toolboxes.create.success", name: @box.name)
     else
-      render :new, error: t("flash.toolboxes.create.error")
+      render :new, error: t("flash.toolboxes.create.error", name: @box.name)
     end
   end
 
@@ -34,9 +33,9 @@ class ToolboxesController < ApplicationController
     @box = Toolbox.find(params[:id])
 
     if @box.update_attributes(toolbox_params)
-      redirect_to toolboxes_path, notice: t("flash.toolboxes.update.success")
+      redirect_to toolboxes_path, notice: t("flash.toolboxes.update.success", name: @box.name)
     else
-      render :edit, error: t("flash.toolboxes.update.error")
+      render :edit, error: t("flash.toolboxes.update.error", name: @box.name)
     end
   end
 
@@ -44,9 +43,9 @@ class ToolboxesController < ApplicationController
     @box = Toolbox.find(params[:id])
 
     if @box.destroy
-      redirect_to toolboxes_path, notice: t("flash.toolboxes.destroy.notice")
+      redirect_to toolboxes_path, notice: t("flash.toolboxes.destroy.notice", name: @box.name)
     else
-      redirect_to toolboxes_path, error: t("flash.toolboxes.destroy.error")
+      redirect_to toolboxes_path, error: t("flash.toolboxes.destroy.error", name: @box.name)
     end
   end
 
