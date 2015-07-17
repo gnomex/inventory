@@ -1,0 +1,33 @@
+<section class="row">
+<h1><%= t("flash.items.title") %></h1>
+
+<section class="bs-callout bs-callout-info">
+  <%= link_to t("flash.items.form.actions.new"), new_item_path, class: "btn btn-info" %>
+</section>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t("flash.items.form.title") %></th>
+      <th><%= t("flash.items.form.quantity") %></th>
+      <th><%= t("flash.items.form.useful_for") %></th>
+      <th><%= t("flash.items.form.category") %></th>
+      <th><%= t("flash.items.form.actions_box") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.useful_for %></td>
+        <td><%= item.category.name unless item.category.nil? %></td>
+        <td>
+        <%= link_to t("flash.items.form.actions.edit"), edit_item_path(item), class: "btn btn-info" %>
+        <%= link_to t("flash.items.form.actions.delete"), item_path(item), method: :delete, data: {confirm: t("flash.items.form.actions.confirm")}, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

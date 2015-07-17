@@ -1,0 +1,36 @@
+en:
+  flash:
+    items:
+      title: "All items"
+      norecords: "No items found"
+      link_name: "Items"
+
+      destroy:
+        notice: "The items %{name} was deleted"
+        error: "Hey, we got a error on %{name} and it's impossible to remote it now, try later!"
+
+      create:
+        error: "Impossible to save %{name} now"
+        notice: "The item %{name} is safe now!"
+        success: "The item %{name} was created!"
+
+      update:
+        success: "The %{name} has been updated"
+        error:  "Impossible to update"
+
+
+      form:
+        title:      "Create a new item"
+        id:         "#"
+        name: "The name"
+        quantity: "The quantity"
+        useful_for: "What's the utility for that?"
+        category: "Assigned category"
+        erros_mesages: "Errors"
+        actions:
+          edit:   "Editing"
+          submit: "Save!"
+          show:   "Show me"
+          cancel: "Cancel"
+          delete: "Purge"
+          confirm: "Are you sure?"

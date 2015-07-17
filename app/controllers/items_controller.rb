@@ -1,4 +1,4 @@
-class ItemController < ApplicationController
+class ItemsController < ApplicationController
   def index
     @items = Item.all
 
@@ -20,9 +20,9 @@ class ItemController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      redirect_to items_path, notice: t("flash.items.create.success")
+      redirect_to items_path, notice: t("flash.items.create.success", name: @item.name)
     else
-      render :edit, error: t("flash.items.create.error")
+      render :edit, error: t("flash.items.create.error", name: @item.name)
     end
   end
 
@@ -35,9 +35,9 @@ class ItemController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.update_attributes(item_params)
-      redirect_to items_path, notice: t("flash.items.update.success")
+      redirect_to items_path, notice: t("flash.items.update.success", name: @item.name)
     else
-      render :edit, error: t("flash.item.update.fail")
+      render :edit, error: t("flash.item.update.error", name: @item.name)
     end
   end
 
@@ -45,9 +45,9 @@ class ItemController < ApplicationController
     @item = Item.find(params[:id])
 
     if @item.destroy
-      redirect_to root_path, notice: t("flash.items.destroy.notice")
+      redirect_to items_path, notice: t("flash.items.destroy.notice")
     else
-      redirect_to root_path, error: t("flash.items.destroy.error")
+      redirect_to items_path, error: t("flash.items.destroy.error")
     end
   end
 

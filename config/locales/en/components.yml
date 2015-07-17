@@ -1,8 +1,10 @@
 en:
   flash:
-    title: "Potato"
-
     components:
+      title: "Components"
+      norecords: "Nothing found"
+      link_name: "Components"
+
       form:
         title:      "Create a new component"
         id:         "#"
@@ -25,9 +27,6 @@ en:
       errors:
         status:
           nothash: "must be a Hash instance"
-
-      title: "Components"
-      norecords: "No records found"
 
       destroy:
         notice: "Removed!"

@@ -1,0 +1,30 @@
+<%= form_for @item do |f| %>
+<section class="form-group">
+  <i class="glyphicon glyphicon-asterisk"></i>
+  <%= f.label t("flash.items.form.name"), class: 'form-label' %>
+  <%= f.text_field :name, class: 'form-control', placeholder: t("flash.items.form.name")%>
+  <%= error_for @item, :name %>
+</section>
+
+<section class="form-group">
+  <i class="glyphicon glyphicon-asterisk"></i>
+  <%= f.label t("flash.items.form.quantity"), class: 'form-label' %>
+  <%= f.number_field :quantity , class: 'form-control', placeholder: t("flash.items.form.quantity"), min: 0 %>
+  <%= error_for @item, :quantity %>
+</section>
+
+<section class="form-group">
+  <%= f.label t("flash.items.form.useful_for"), class: 'form-label' %>
+  <%= f.text_area :useful_for , class: 'form-control', placeholder: t("flash.items.form.useful_for") %>
+  <%= error_for @item, :useful_for %>
+</section>
+
+<section class="form-group">
+  <%= f.collection_select(:category_id, @categories, :id, :name, {}, {class: 'form-control'}) %>
+</section>
+
+<section class="form-actions">
+  <%= f.submit t("flash.items.form.actions.submit"), class: 'btn btn-success' %>
+  <%= link_to t("flash.items.form.actions.cancel"), items_path, class: 'btn btn-warning' %>
+</section>
+<% end %>

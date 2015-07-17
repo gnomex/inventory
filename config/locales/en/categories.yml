@@ -2,6 +2,8 @@ en:
   flash:
     categories:
       title: "All categories"
+      norecords: "Nothing found"
+      link_name: "Categories"
 
       destroy:
         notice: "The category %{name} was deleted"
