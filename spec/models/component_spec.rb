@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Component, :type => :model do
   it "Throw errors on required fields" do
     component = Component.new
-    expect(component.errors_on(:part_number)).to_not be_empty
+    expect(component.errors_on(:name)).to_not be_empty
     expect(component.errors_on(:stock)).to_not be_empty
     expect(component.errors_on(:description)).to_not be_empty
     expect(component.errors_on(:datasheet)).to_not be_empty
@@ -19,18 +19,39 @@ RSpec.describe Component, :type => :model do
       expect { @component.save! }.to_not raise_error
     end
 
-    it "Part number can't be blank" do
-      @component.part_number = ""
+    it "Name can't be blank" do
+      @component.name = ""
 
       expect{ @component.save! }.to raise_error
-      expect( @component.errors_on(:part_number) ).to_not be_empty
+      expect( @component.errors_on(:name) ).to_not be_empty
     end
 
-    it "Part number can't be nil" do
-      @component.part_number = nil
+    it "Name can't be nil" do
+      @component.name = nil
 
       expect{ @component.save! }.to raise_error
-      expect( @component.errors_on(:part_number) ).to_not be_empty
+      expect( @component.errors_on(:name) ).to_not be_empty
+    end
+
+    it "Description can't be blank" do
+      @component.description = ""
+
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:description) ).to_not be_empty
+    end
+
+    it "Stock can't be nil" do
+      @component.stock = nil
+
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:stock) ).to_not be_empty
+    end
+
+    it "Stock can't be negative" do
+      @component.stock = -1
+
+      expect{ @component.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      expect( @component.errors_on(:stock) ).to_not be_empty
     end
 
     it "Status can't be blank" do
@@ -54,23 +75,12 @@ RSpec.describe Component, :type => :model do
       expect( @component.errors_on(:status) ).to_not be_empty
     end
 
-    it "have a normalized Part Number" do
-      @component.save!
+    it "Datasheet can't be blank" do
+      @component.datasheet = ""
 
-      expect(@component.part_number).to eql("ABCD123")
+      expect{ @component.save! }.to raise_error
+      expect( @component.errors_on(:datasheet) ).to_not be_empty
     end
   end
 
-  context "Unique fields" do
-    before(:all) do
-      @component = create(:component, status: { done: "nooop" })
-    end
-
-    it "part number" do
-      cm = build(:component, status: { testing: "yep" })
-
-      expect{ cm.save! }.to raise_error(ActiveRecord::RecordNotUnique)
-      expect( cm.errors_on(:part_number) ).to_not be_empty
-    end
-  end
 end

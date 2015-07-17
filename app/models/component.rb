@@ -6,6 +6,8 @@ class Component < ActiveRecord::Base
   validates_presence_of :name, :stock, :description, :datasheet, :status
   validates_uniqueness_of :name
 
+  validates :stock, numericality: { only_integer: true, greater_than_or_equal_to: 0}
+
   validate :status_is_a_hash?
 
   belongs_to :category
