@@ -16,7 +16,8 @@
       <tr>
         <td><%= category.name %></td>
         <td>
-          <%= link_to t("flash.categories.form.actions.delete"), category_path(category), method: :delete, data: {confirm: t("flash.categories.form.actions.confirm")}, class: "btn btn-danger" %>
+        <%= link_to t("flash.categories.form.actions.edit"), edit_category_path(category), class: "btn btn-info" %>
+        <%= link_to t("flash.categories.form.actions.delete"), category_path(category), method: :delete, data: {confirm: t("flash.categories.form.actions.confirm")}, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>

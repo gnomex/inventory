@@ -18,12 +18,12 @@ class ComponentsController < ApplicationController
   end
 
   def create
-    @component = Component.new(form_params)
+    @component = Component.new(component_params)
 
     @component.status = Hash["event".to_sym, "status"]
 
     if @component.save
-      redirect_to components_path
+      redirect_to components_path, error: t("flash.components.create.success")
     else
       render :new, error: t("flash.components.create.error")
     end
@@ -31,12 +31,14 @@ class ComponentsController < ApplicationController
 
   def edit
     @component = Component.find(params[:id])
+    @categories = Category.all
   end
 
   def update
     @component = Component.find(params[:id])
-    if @component.update_attributes(params[:component])
-      redirect_to components_path
+
+    if @component.update_attributes!(component_params)
+      redirect_to components_path, notice: t("flash.components.update.success")
     else
       render :edit, error: t("flash.components.errors.update")
     end
@@ -44,6 +46,7 @@ class ComponentsController < ApplicationController
 
   def destroy
     @component = Component.find(params[:id])
+
     if @component.destroy
       redirect_to root_path, notice: t("flash.components.destroy.notice")
     else
@@ -52,7 +55,7 @@ class ComponentsController < ApplicationController
   end
 
   private
-  def form_params
+  def component_params
     params.require(:component).permit(:part_number, :stock, :description, :manufacturer, :datasheet, :image_link, :status, :category_id)
   end
 end

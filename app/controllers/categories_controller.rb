@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(form_params)
+    @category = Category.new(category_params)
 
     if @category.save
       flash[:notice] = t("flash.categories.create.notice", name: @category.name)
@@ -24,8 +24,9 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    if @category.update_attributes(params[:category])
-      redirect_to category
+
+    if @category.update_attributes(category_params)
+      redirect_to categories_path, notice: t("flash.category.update.success")
     else
       render :edit, error: t("flash.category.errors.update")
     end
@@ -42,7 +43,7 @@ class CategoriesController < ApplicationController
   end
 
   private
-  def form_params
+  def category_params
     params.require(:category).permit(:name)
   end
 end

@@ -12,6 +12,7 @@
 </section>
 
 <%= link_to t("flash.components.form.actions.delete"), component_path(@component), method: :delete, data: {confirm: t("flash.components.form.actions.confirm")}, class: "btn btn-danger" %>
-<%= link_to t("flash.components.form.actions.cancel"), components_path, class: 'btn btn-warning' %>
+<%= link_to t("flash.components.form.actions.edit"), edit_component_path(@component), class: "btn btn-info" %>
+<%= link_to t("flash.components.form.actions.back"), components_path, class: 'btn btn-warning' %>
 
 </section>
