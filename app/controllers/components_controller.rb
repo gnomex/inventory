@@ -23,9 +23,9 @@ class ComponentsController < ApplicationController
     @component.status = Hash["event".to_sym, "status"]
 
     if @component.save
-      redirect_to components_path, error: t("flash.components.create.success")
+      redirect_to components_path, notice: t("flash.components.create.success", name: @component.name)
     else
-      render :new, error: t("flash.components.create.error")
+      render :new, error: t("flash.components.create.error", name: @component.name)
     end
   end
 

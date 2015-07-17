@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :component do
-    name "Banana PI"
-    model "MMB1"
-    stock 10
-    description "Something mocked"
-    manufacturer "gnomex"
-    image_link "someplace.io/image.png"
-    datasheet "www.alldatasheets.com/search?q=abcd1234"
+    name { Faker::Commerce.product_name }
+    model { Faker::Lorem.word }
+    stock { Faker::Number.between(0, 100) }
+    description { Faker::Lorem.sentence }
+    manufacturer { Faker::Company.name }
+    image_link { Faker::Avatar.image }
+    datasheet { Faker::Internet.url }
     category
   end
 end

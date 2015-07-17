@@ -16,6 +16,7 @@ group :assets do
   gem 'coffee-rails', '~> 4.1.0'
   gem 'turbolinks'
   gem "therubyracer", "~> 0.12.1"
+  gem 'sprockets-rails'
 end
 
 group :development, :test do
@@ -30,7 +31,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', '~> 2.4.4'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'

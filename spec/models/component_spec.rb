@@ -11,11 +11,11 @@ RSpec.describe Component, :type => :model do
   end
 
   context "Model validations" do
-    before(:each) do
+    before(:all) do
       @component = build(:component, status: { done: "nooop" })
     end
 
-    it "doesn't trow exception" do
+    it "doesn't trow exception with valid data" do
       expect { @component.save! }.to_not raise_error
     end
 

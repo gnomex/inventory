@@ -5,6 +5,11 @@ en:
       norecords: "Nothing found"
       link_name: "Components"
 
+      create:
+        error: "Impossible to save %{name} now"
+        notice: "The category %{name} is safe now!"
+        success: "The %{name} has been created"
+
       form:
         title:      "Create a new component"
         id:         "#"

@@ -17,6 +17,6 @@
     "jquery": "~2.1.0",
     "jquery-ujs": "*",
     "font-awesome": "~4.0.3",
-    "bootstrap": "~3.2.0"
+    "bootstrap-sass": "~3.3.5"
   }
 }

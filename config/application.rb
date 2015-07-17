@@ -38,7 +38,12 @@ module CeltabInventory
     config.assets.css_compressor = :sass
     config.assets.js_compressor = :uglify
 
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower')
+    Rails.root.join('vendor', 'assets', 'bower').to_s.tap do |bower_path|
+      # config.sass.load_paths << bower_path
+      config.assets.paths << bower_path
+    end
+
+    config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true

@@ -206,7 +206,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
-  capybara
+  capybara (~> 2.4.4)
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails (~> 4.0)
@@ -224,6 +224,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   spring
+  sprockets-rails
   therubyracer (~> 0.12.1)
   thin (~> 1.6.3)
   turbolinks
