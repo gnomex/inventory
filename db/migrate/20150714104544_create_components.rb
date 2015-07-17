@@ -3,9 +3,10 @@ class CreateComponents < ActiveRecord::Migration
     enable_extension 'uuid-ossp'
 
     create_table :components, id: :uuid do |t|
-      t.string  :part_number,   null: false
+      t.string  :name,          null: false
       t.integer :stock,         null: false
-      t.string  :description,   null: false, default: ""
+      t.text    :description,   null: false, default: ""
+      t.string  :model
       t.string  :manufacturer
       t.string  :datasheet,     null: false, default: ""
       t.string  :image_link
@@ -15,7 +16,7 @@ class CreateComponents < ActiveRecord::Migration
     end
 
     add_column :components, :category_id, :uuid, index: true
-    add_index :components, :part_number, unique: true
+    add_index :components, :name, unique: true
     add_index :components, :status, using: :gin
   end
 

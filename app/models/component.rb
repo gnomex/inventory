@@ -3,8 +3,8 @@ class Component < ActiveRecord::Base
 
   # before_save :normalize_part_number
 
-  validates_presence_of :part_number, :stock, :description, :datasheet, :status
-  validates_uniqueness_of :part_number
+  validates_presence_of :name, :stock, :description, :datasheet, :status
+  validates_uniqueness_of :name
 
   validate :status_is_a_hash?
 

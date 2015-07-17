@@ -22,7 +22,8 @@ items *-1 categories
 
 Components *-1 category
 * uuid
-* part_number
+* name
+* model
 * description
 * stock
 * package

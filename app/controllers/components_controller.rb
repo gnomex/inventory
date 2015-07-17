@@ -56,6 +56,6 @@ class ComponentsController < ApplicationController
 
   private
   def component_params
-    params.require(:component).permit(:part_number, :stock, :description, :manufacturer, :datasheet, :image_link, :status, :category_id)
+    params.require(:component).permit(:name, :model, :stock, :description, :manufacturer, :datasheet, :image_link, :status, :category_id)
   end
 end

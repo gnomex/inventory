@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20150714105604) do
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "components", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
-    t.string   "part_number",               null: false
+    t.string   "name",                      null: false
     t.integer  "stock",                     null: false
-    t.string   "description",  default: "", null: false
+    t.text     "description",  default: "", null: false
+    t.string   "model"
     t.string   "manufacturer"
     t.string   "datasheet",    default: "", null: false
     t.string   "image_link"
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150714105604) do
     t.uuid     "category_id"
   end
 
-  add_index "components", ["part_number"], name: "index_components_on_part_number", unique: true, using: :btree
+  add_index "components", ["name"], name: "index_components_on_name", unique: true, using: :btree
   add_index "components", ["status"], name: "index_components_on_status", using: :gin
 
   create_table "items", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|

@@ -1,16 +1,22 @@
 <%= form_for @component do |f| %>
 <section class="form-group">
   <i class="glyphicon glyphicon-asterisk"></i>
-  <%= f.label t("flash.components.form.stock"), class: 'form-label' %>
-  <%= f.number_field :stock , class: 'form-control', placeholder: t("flash.components.form.stock"), min: 0 %>
-  <%= error_for @component, :stock %>
+  <%= f.label t("flash.components.form.name"), class: 'form-label' %>
+  <%= f.text_field :name, class: 'form-control', placeholder: t("flash.components.form.name")%>
+  <%= error_for @component, :name %>
+</section>
+
+<section class="form-group">
+  <%= f.label t("flash.components.form.model"), class: 'form-label' %>
+  <%= f.text_field :model, class: 'form-control', placeholder: t("flash.components.form.model")%>
+  <%= error_for @component, :model %>
 </section>
 
 <section class="form-group">
   <i class="glyphicon glyphicon-asterisk"></i>
-  <%= f.label t("flash.components.form.part_number"), class: 'form-label' %>
-  <%= f.text_field :part_number, class: 'form-control', placeholder: t("flash.components.form.part_number")%>
-  <%= error_for @component, :part_number %>
+  <%= f.label t("flash.components.form.stock"), class: 'form-label' %>
+  <%= f.number_field :stock , class: 'form-control', placeholder: t("flash.components.form.stock"), min: 0 %>
+  <%= error_for @component, :stock %>
 </section>
 
 <section class="form-group">
@@ -40,8 +46,16 @@
 </section>
 
 <section class="form-group">
-  <%= f.collection_select(:category_id, @categories, :id, :name, {}, {class: 'form-control'}) %>
+  <% if @categories.blank? %>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <%= t("flash.components.form.categories.not_found") %>
+    </div>
+  <% else %>
+    <%= f.collection_select(:category_id, @categories, :id, :name, {}, {class: 'form-control'}) %>
+  <% end %>
 </section>
+
 
 <section class="form-actions">
   <%= f.submit t("flash.components.form.actions.submit"), class: 'btn btn-success' %>
