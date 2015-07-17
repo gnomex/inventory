@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :toolbox do
-    name "Gnomo's toolbox"
-    owner "gnomex"
-    description "A lot of tools and devices"
+    name { Faker::App.name }
+    owner { Faker::Name.name }
+    description { Faker::Hacker.say_something_smart }
   end
 end
