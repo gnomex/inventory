@@ -42,6 +42,16 @@ RSpec.describe Item, :type => :model do
 
       expect( @item.name ).to eql("BananaPi")
     end
+
+    describe "associations" do
+      it "responds to toolboxes" do
+        expect(@item).to respond_to :toolbox
+      end
+
+      it "responds to categories" do
+        expect(@item).to respond_to :category
+      end
+    end
   end
 
   context "Unique" do

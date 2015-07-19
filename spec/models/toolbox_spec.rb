@@ -4,6 +4,7 @@ RSpec.describe Toolbox, :type => :model do
   it "Require fields" do
     toolbox = Toolbox.new
     expect(toolbox.errors_on(:name)).to_not be_empty
+    expect(toolbox.errors_on(:location)).to_not be_empty
   end
 
   context "Model validations" do
@@ -20,6 +21,13 @@ RSpec.describe Toolbox, :type => :model do
 
       expect { @toolbox.save! }.to raise_error
       expect(@toolbox.errors_on(:name)).to_not be_empty
+    end
+
+    it "location can't be blank" do
+      @toolbox.location = ""
+
+      expect { @toolbox.save! }.to raise_error
+      expect(@toolbox.errors_on(:location)).to_not be_empty
     end
   end
 end

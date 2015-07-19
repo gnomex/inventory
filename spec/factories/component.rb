@@ -8,5 +8,6 @@ FactoryGirl.define do
     image_link { Faker::Avatar.image }
     datasheet { Faker::Internet.url }
     category
+    toolbox
   end
 end
