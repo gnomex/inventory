@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20150714105604) do
 
   create_table "components", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",                      null: false
-    t.integer  "stock",                     null: false
+    t.integer  "stock",        default: 0,  null: false
     t.text     "description",  default: "", null: false
-    t.string   "model"
+    t.string   "model",        default: "", null: false
     t.string   "manufacturer"
     t.string   "datasheet",    default: "", null: false
     t.string   "image_link"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150714105604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.uuid     "category_id"
+    t.uuid     "toolbox_id"
   end
 
   add_index "components", ["name"], name: "index_components_on_name", unique: true, using: :btree
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150714105604) do
 
   create_table "toolboxes", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",        default: "", null: false
+    t.string   "location",                 null: false
     t.string   "owner"
     t.string   "description"
     t.datetime "created_at"

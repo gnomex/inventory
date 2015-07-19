@@ -3,9 +3,10 @@ class Toolbox < ActiveRecord::Base
 
   before_save :normalize_name
 
-  validates_presence_of :name
+  validates_presence_of :name, :location
 
   has_many :items
+  has_many :components
 
   default_scope -> { order created_at: "DESC" }
 

@@ -3,7 +3,7 @@ class Component < ActiveRecord::Base
 
   # before_save :normalize_part_number
 
-  validates_presence_of :name, :stock, :description, :datasheet, :status
+  validates_presence_of :name, :stock, :description, :datasheet, :status, :model
   validates_uniqueness_of :name
 
   validates :stock, numericality: { only_integer: true, greater_than_or_equal_to: 0}
@@ -11,6 +11,7 @@ class Component < ActiveRecord::Base
   validate :status_is_a_hash?
 
   belongs_to :category
+  belongs_to :toolbox
 
   default_scope -> { order created_at: "DESC" }
 

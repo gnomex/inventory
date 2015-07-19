@@ -3,7 +3,8 @@ class CreateToolbox < ActiveRecord::Migration
     enable_extension 'uuid-ossp'
 
     create_table :toolboxes, id: :uuid do |t|
-      t.string :name, null: false, default: ""
+      t.string :name,     null: false, default: ""
+      t.string :location, null: false
       t.string :owner
       t.string :description
 
