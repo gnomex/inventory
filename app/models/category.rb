@@ -5,10 +5,9 @@ class Category < ActiveRecord::Base
 
   validates_presence_of :name
   validates_uniqueness_of :name
-  # validates_format_of :name, with: /\A[\w]+/, on: :save
 
-  has_many :items,      dependent: :destroy
-  has_many :components, dependent: :destroy
+  has_many :items       #, dependent: :destroy
+  has_many :components  #, dependent: :destroy
 
   default_scope -> { order name: "ASC" }
 

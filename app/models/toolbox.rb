@@ -5,8 +5,7 @@ class Toolbox < ActiveRecord::Base
 
   validates_presence_of :name
 
-  belongs_to :category
-  belongs_to :toolbox
+  has_many :items
 
   default_scope -> { order created_at: "DESC" }
 
