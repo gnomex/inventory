@@ -1,52 +1,24 @@
-# Hey
-    The CELTAB inventory for our automation office
+# Inventory App
+    An inventory for our automation (Hardware) office
 
-## Inventory
+## Go!
 
-Toolbox 1-* items
-* uuid
-* Name
-* Owner or responsible
-* Description
-* created_at
-* updated_at
+1. Clone the source
+2. go to project path
+3. run de blundler (`bundle install`)
+4. run de bower (`bower install`)
+5. config your database (`config/database.yml.sample`)
+6. run (`rake db:setup`)
+7. generate your app secrets (`rake secret`) and save it to (`config/secrets.yml.sample`)
+8. to run the app (`rails s`)
+9. Then open [http://localhost:3000/](http://localhost:3000/)
 
-items *-1 categories
-* uuid
-* name
-* useful_for (aka description)
-* quantity
-* category_id
-* created_at
-* updated_at
+Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html)
 
-Components *-1 category
-* uuid
-* name
-* model
-* description
-* stock
-* package
-* manufacturer
-* datasheet link
-* Image link
-* status (aka it still working? In use?)
-* created_at
-* updated_at
-* category_id
+## Contributing
 
-Categories
-* uuid
-* name
-* created_at
-* updated_at
-
-Users
-* uuid
-* name
-* username
-* password
-* department
-* role
-* created_at
-* updated_at
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
