@@ -11,7 +11,7 @@ RSpec.describe Component, :type => :model do
   end
 
   context "Model validations" do
-    before(:all) do
+    before(:each) do
       @component = build(:component, status: { done: "nooop" })
     end
 
