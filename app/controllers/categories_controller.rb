@@ -39,6 +39,8 @@ class CategoriesController < ApplicationController
       @category.destroy
       flash[:notice] = t("flash.categories.destroy.notice", name: @category.name)
     rescue ActiveRecord::DeleteRestrictionError => e
+      # puts e.message
+      # puts e.backtrace.inspect
       @category.errors.add(:base, e)
       flash[:error] = "#{e}"
     ensure

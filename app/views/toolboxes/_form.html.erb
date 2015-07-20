@@ -13,6 +13,12 @@
 </section>
 
 <section class="form-group">
+  <%= f.label t("flash.toolboxes.form.location"), class: 'form-label' %>
+  <%= f.text_field :location, class: 'form-control', placeholder: t("flash.toolboxes.form.location")%>
+  <%= error_for @box, :location %>
+</section>
+
+<section class="form-group">
   <%= f.label t("flash.toolboxes.form.description"), class: 'form-label' %>
   <%= f.text_area :description , class: 'form-control', placeholder: t("flash.toolboxes.form.description") %>
   <%= error_for @box, :description %>

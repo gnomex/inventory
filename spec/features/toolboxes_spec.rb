@@ -9,6 +9,7 @@ RSpec.feature "Toolboxes features", type: :feature, js: true do
     within("#new_toolbox") do
       fill_in 'toolbox_name', with: name
       fill_in 'toolbox_owner', with: Faker::Name.name
+      fill_in 'toolbox_location', with: [Faker::Name.prefix, Faker::Name.last_name, "cabinet"].join(' ')
       fill_in 'toolbox_description', with: Faker::Hacker.say_something_smart
     end
 

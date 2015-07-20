@@ -24,6 +24,7 @@ en:
         name: "The name"
         owner: "Owner or responsible name"
         description: "A short description"
+        location: "The location"
         erros_mesages: "Errors"
         actions:
           edit:   "Editing"
