@@ -32,6 +32,9 @@ en:
         categories:
           not_found: "Any category to assing"
           nothing:  "No category yet"
+        toolbox:
+          not_found: "Any box to assingn"
+          nothing: "This component isn't assigned to any box"
 
       errors:
         status:

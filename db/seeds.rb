@@ -5,6 +5,16 @@
   })
 end
 
+2.times do |i|
+  puts "[#{i}]Creating a box"
+  Toolbox.create!({
+    name: Faker::App.name,
+    location:[Faker::Name.prefix, Faker::Name.last_name, "cabinet"].join(' '),
+    owner: Faker::Name.name,
+    description: Faker::Hacker.say_something_smart
+  })
+end
+
 10.times do |i|
   puts "[#{i}]Creating a component"
   Component.create!({
@@ -16,7 +26,8 @@ end
     image_link: Faker::Avatar.image,
     datasheet: Faker::Internet.url,
     status: {in_use: "noop"},
-    category: Category.take
+    category: Category.take,
+    toolbox: Toolbox.take
   })
 end
 

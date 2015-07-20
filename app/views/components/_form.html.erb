@@ -56,6 +56,17 @@
   <% end %>
 </section>
 
+<section class="form-group">
+  <% if @boxes.blank? %>
+    <div class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <%= t("flash.components.form.toolbox.not_found") %>
+    </div>
+  <% else %>
+    <%= f.collection_select(:toolbox_id, @boxes, :id, :name, {}, {class: 'form-control'}) %>
+  <% end %>
+</section>
+
 
 <section class="form-actions">
   <%= f.submit t("flash.components.form.actions.submit"), class: 'btn btn-success' %>

@@ -51,6 +51,6 @@ class ToolboxesController < ApplicationController
 
   private
   def toolbox_params
-    params.require(:toolbox).permit(:name, :owner, :description)
+    params.require(:toolbox).permit(:name, :owner, :description, :location)
   end
 end

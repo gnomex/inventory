@@ -15,6 +15,7 @@ class ComponentsController < ApplicationController
   def new
     @component = Component.new
     @categories = Category.all
+    @boxes = Toolbox.all
   end
 
   def create
@@ -32,6 +33,7 @@ class ComponentsController < ApplicationController
   def edit
     @component = Component.find(params[:id])
     @categories = Category.all
+    @boxes = Toolbox.all
   end
 
   def update
@@ -56,6 +58,6 @@ class ComponentsController < ApplicationController
 
   private
   def component_params
-    params.require(:component).permit(:name, :model, :stock, :description, :manufacturer, :datasheet, :image_link, :status, :category_id)
+    params.require(:component).permit(:name, :model, :stock, :description, :manufacturer, :datasheet, :image_link, :status, :category_id, :toolbox_id)
   end
 end

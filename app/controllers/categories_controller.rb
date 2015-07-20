@@ -35,10 +35,14 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
 
-    if @category.destroy
-      redirect_to categories_path, notice: t("flash.categories.destroy.notice", name: @category.name)
-    else
-      redirect_to categories_path, error: t("flash.categories.destroy.error", name: @category.name)
+    begin
+      @category.destroy
+      flash[:notice] = t("flash.categories.destroy.notice", name: @category.name)
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @category.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to categories_path
     end
   end
 
