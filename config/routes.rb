@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :pelegos
+  # devise_for :pelegos, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :components
   resources :categories
   resources :items

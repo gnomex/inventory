@@ -13,6 +13,7 @@ gem 'thin', '~> 1.6.3'
 gem 'devise', '~> 3.5.1'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'omniauth-google-oauth2', '~> 0.2.6'
 
 group :assets do
   gem 'sass-rails', '~> 5.0'
