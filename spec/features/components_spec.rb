@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "Components features", type: :feature, js: true do
   background(:all) do
-    FactoryGirl.create(:category)
+    @category ||= FactoryGirl.create(:category)
+    @box ||= FactoryGirl.create(:toolbox)
   end
-  # given!(:category)  { FactoryGirl.create(:category) }
 
   scenario 'create with valid data' do
-    visit new_component_path
+    visit "/components/new"
 
     component_name = Faker::Commerce.product_name
 
@@ -19,7 +19,8 @@ RSpec.feature "Components features", type: :feature, js: true do
       fill_in 'component_manufacturer', with: Faker::Company.name
       fill_in 'component_datasheet', with: Faker::Internet.url
       fill_in 'component_image_link', with: Faker::Avatar.image
-      find('#component_category_id').click
+      find('#component_category_id').find("option[value=#{@category.id}]").select_option
+      find('#component_toolbox_id').find("option[value=#{@box.id}]").select_option
     end
 
     click_on "Save!"
@@ -28,8 +29,8 @@ RSpec.feature "Components features", type: :feature, js: true do
     expect(page).to have_content "The #{component_name} has been created"
   end
 
-  # scenario "don't create and raise errors with invalid data" do
-  # end
+  scenario "don't create and raise errors with invalid data" do
+  end
 
   # scenario 'assign a category' do
   #   # find('#component_category_id').click

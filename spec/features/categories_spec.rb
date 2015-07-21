@@ -5,7 +5,6 @@ RSpec.feature "Categories features", type: :feature, js: true do
   # end
 
   scenario 'create with valid data' do
-    # visit new_category_path
     visit '/categories/new'
 
     category_name = Faker::Commerce.department
@@ -18,7 +17,6 @@ RSpec.feature "Categories features", type: :feature, js: true do
 
     expect(page.current_path).to eql(categories_path)
     expect(page).to have_content "The category #{category_name.humanize} is safe now!"
-
   end
 
   # scenario "don't create and raise errors with invalid data" do
