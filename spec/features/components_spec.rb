@@ -23,14 +23,23 @@ RSpec.feature "Components features", type: :feature, js: true do
       find('#component_toolbox_id').find("option[value=#{@box.id}]").select_option
     end
 
+    # expect {
     click_on "Save!"
+    # }.to change(Component.all.count).from(0).to(1)
 
     expect(page.current_path).to eql(components_path)
+    expect(page).to have_selector('#flash_messages section.notice')
     expect(page).to have_content "The #{component_name} has been created"
   end
 
-  scenario "don't create and raise errors with invalid data" do
-  end
+  # scenario "don't create and raise errors with invalid data" do
+  #   visit "/components/new"
+
+  #   click_on "Save!"
+
+  #   expect(all(:css, '.field_with_errors').count).to eq(4)
+  #   expect(page.current_path).to eql(new_component_path)
+  # end
 
   # scenario 'assign a category' do
   #   # find('#component_category_id').click

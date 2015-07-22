@@ -12,7 +12,9 @@
 </header>
 
 <section class="container">
-  <%= render "shared/flash_messages" %>
+  <section id="flash_messages">
+    <%= render "shared/flash_messages" %>
+  </section>
   <%= yield %>
 </section>
 
