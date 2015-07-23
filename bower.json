@@ -17,6 +17,7 @@
     "jquery": "~2.1.0",
     "jquery-ujs": "*",
     "font-awesome": "~4.0.3",
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "materialize": "~0.97.0"
   }
 }
