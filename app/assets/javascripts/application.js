@@ -12,6 +12,6 @@
 //
 //= require jquery/dist/jquery.min
 //= require jquery-ujs/src/rails
-//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+//= require materialize/dist/js/materialize.min
 //= require namespace
 //= require_tree .

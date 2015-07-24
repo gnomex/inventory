@@ -43,7 +43,8 @@ module CeltabInventory
       config.assets.paths << bower_path
     end
 
-    config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)
+    config.assets.precompile << %r(materialize/font/[\w-]+\.(?:eot|svg|ttf|woff|woff2?)$)
+    config.assets.precompile << %r(font-awesome/fonts/[\w-]+\.(?:eot|otf|svg|ttf|woff|woff2?)$)
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true

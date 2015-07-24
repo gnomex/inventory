@@ -14,8 +14,10 @@
  *= require_self
  */
 
-$icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
-@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
-@import "bootstrap-sass/assets/stylesheets/bootstrap";
+// body { padding-top: 100px; }
 
-body { padding-top: 100px; }
+$roboto-font-path: 'materialize/font/roboto/';
+@import 'materialize/sass/materialize';
+
+$fa-font-path: 'font-awesome/fonts/';
+@import 'font-awesome/scss/font-awesome';
